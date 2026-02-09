@@ -9,7 +9,7 @@ const RootLayout = () => {
         headerStyle:{ backgroundColor: '#ddd'},
         headerTintColor: '#333',
      }}>
-        <Stack.Screen name='index' options={{title: 'Home'}} />
+        <Stack.Screen name='index' options={{title: 'Home', headerShown: false}} />
     </Stack>
   )
 }
