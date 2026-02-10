@@ -1,10 +1,10 @@
-import { ScrollView, StyleSheet, Text, View, Pressable, Image } from 'react-native'
+import { ScrollView, StyleSheet, Text, View, Pressable, Image, ImageBackground } from 'react-native'
 import React, { useState } from 'react'
 import { Colors } from '../constants/Colors'
 import { useNavigation } from '@react-navigation/native'
 
 
-import ProfilePic from '../assets/img/ProfilePictureThird.png'
+import StreetWear from '../assets/img/Streetwear.jpg'
 import ProfilePic2 from '../assets/img/Random ProfilePicSecond.webp'
 import ProfilePic3 from '../assets/img/RandomProfilePic.webp'
 import Logo from '../assets/img/STYLD Logo.png'
@@ -23,40 +23,25 @@ const Aesthetic = () => {
         <Text style={styles.heading2}>Select Your Aesthetic</Text>
 
         <Text style={{
-          color: '#ffffff',
+          color: '#ffffff40',
           marginVertical: 10,
-          fontSize: 24,
+          fontSize: 16,
           textAlign: 'center', //centers text horizontally within its container
         }}>
           Choose the style that resonates
         </Text>
       
-        <Text style={{
-          color: '#ffffff',
-          textAlign: 'center', 
-          marginVertical: 20,
-           }}> 
-          AI-powered styling + Virtual try-on + Curated {"\n"}marketplace
-        </Text>
-
-        <Text style={{
-          color: '#ffffff',
-          textAlign: 'center', 
-          marginVertical: 20,
-           }}> 
-          Join 49,905+ users styling smarter
-        </Text>
 
         <View style={styles.reviewCard}>
-           <Image source={ProfilePic} style={styles.img} />
-           <View style={{flex:1}}>
-            <Text style={styles.normalText}>Sophia Laurent</Text>
-            <Text style={styles.subText}>Fashion Director</Text>
-            <Text style={[styles.subText, {marginTop: 20, fontStyle: 'italic'}]}>"A masterclass in personal style"</Text>
-           </View>
+           <ImageBackground source={StreetWear} style={styles.img} />
+            <View style={{flex:1}}>
+              <Text style={styles.normalText}>Sophia Laurent</Text>
+              <Text style={styles.subText}>Fashion Director</Text>
+              <Text style={[styles.subText, {marginTop: 20, fontStyle: 'italic'}]}>"A masterclass in personal style"</Text>
+            </View>
         </View>
         <View style={styles.reviewCard}>
-           <Image source={ProfilePic2} style={styles.img} />
+           <ImageBackground source={ProfilePic2} style={styles.img} />
            <View style={{flex:1}}>
             <Text style={styles.normalText}>Marcus Chen</Text>
             <Text style={styles.subText}>Creative Consultant</Text>
@@ -65,7 +50,7 @@ const Aesthetic = () => {
         </View>
 
         <View style={styles.reviewCard}>
-           <Image source={ProfilePic3} style={styles.img} />
+           <ImageBackground source={ProfilePic3} style={styles.img} />
            <View style={{flex:1}}>
             <Text style={styles.normalText}>Isabella Rose</Text>
             <Text style={styles.subText}>Brand Strategist</Text>
@@ -103,11 +88,10 @@ const styles = StyleSheet.create({
 
     heading2: {
         color: Colors.Secondary,
-        fontSize: 40,
+        fontSize: 36,
         fontWeight: 'bold',
         marginBottom: 10,
-        justifyContent: 'center',
-        alignItems: 'center',
+        textAlign: 'center',
     },
 
     reviewCard: {
@@ -166,7 +150,7 @@ const styles = StyleSheet.create({
     img: {
       width: 100,
       height: 100,
-      resizeMode: 'cover',
+      resizeMode: 'contain',
       borderWidth: 1,
       borderColor: '#ffffff14',
       borderRadius: 50,
