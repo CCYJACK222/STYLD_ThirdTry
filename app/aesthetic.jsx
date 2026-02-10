@@ -9,7 +9,7 @@ import ProfilePic2 from '../assets/img/Random ProfilePicSecond.webp'
 import ProfilePic3 from '../assets/img/RandomProfilePic.webp'
 import Logo from '../assets/img/STYLD Logo.png'
 
-const Home = () => {
+const Aesthetic = () => {
   const navigation = useNavigation();
   const [isHovered, setIsHovered] = useState(false);
 
@@ -17,10 +17,10 @@ const Home = () => {
     <View style={styles.container}>
       <ScrollView contentContainerStyle={{alignItems: 'center', paddingVertical: 40}} showsVerticalScrollIndicator={false}>
       
-      <Image source={Logo} style={{width: 300, height: 300, marginBottom: 20}} />
+      <Image source={Logo} style={{width: 50, height: 50, marginBottom: 20}} />
       
 
-        <Text style={styles.heading1}>STYLD</Text>
+        <Text style={styles.heading2}>Select Your Aesthetic</Text>
 
         <Text style={{
           color: '#ffffff',
@@ -28,7 +28,7 @@ const Home = () => {
           fontSize: 24,
           textAlign: 'center', //centers text horizontally within its container
         }}>
-          Where Style Meets {"\n"}Intelligence
+          Choose the style that resonates
         </Text>
       
         <Text style={{
@@ -73,17 +73,24 @@ const Home = () => {
            </View>
         </View>
         
-        <Pressable style={({pressed}) => [styles.btn, pressed && styles.pressed]} onPress={() => navigation.navigate('aesthetic')}>
-           <Text style={{fontSize: 16}}>Get STYLD  > </Text>
-        </Pressable>
-        
+
+
         <Text style={styles.subText}>Personalized in under 60 seconds</Text>
       </ScrollView>
+
+      <View style={styles.btnContainer}>
+          <Pressable style={({pressed}) => [styles.backbtn, pressed && styles.pressed]} onPress={() => navigation.goBack()}>
+            <Text style={{color: '#ffffff', fontSize: 16}}>Back</Text>
+          </Pressable>
+          <Pressable style={({pressed}) => [styles.btn, pressed && styles.pressed]} onPress={() => navigation.navigate('profile')}>
+            <Text style={{fontSize: 16}}>Continue  > </Text>
+          </Pressable>
+        </View>
     </View>
   )
 }
 
-export default Home
+export default Aesthetic
 
 const styles = StyleSheet.create({
     container: {
@@ -93,14 +100,16 @@ const styles = StyleSheet.create({
         alignItems: 'center', //Centers horizontally
         flex: 1,
     },
-    heading1: {
+
+    heading2: {
         color: Colors.Secondary,
-        fontSize: 92,
+        fontSize: 40,
         fontWeight: 'bold',
-        borderBottomWidth: 1,
-        borderBottomColor: '#ffffff',
         marginBottom: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
+
     reviewCard: {
         borderRadius: 24,
         borderWidth: 1,
@@ -112,9 +121,18 @@ const styles = StyleSheet.create({
         width: 350,
         flexDirection: 'row',
     },
+
     normalText: {
         color: '#ffffff',
     },
+
+
+    btnContainer: {
+      flexDirection: 'row',
+      marginVertical: 20,
+      backgroundColor: 'transparent',
+    },
+
     btn: {
       backgroundColor: '#ffffff',
       padding: 25,
@@ -122,13 +140,29 @@ const styles = StyleSheet.create({
       borderRadius: 35,
       marginVertical: 20,
     },
+
+    backbtn: {
+      backgroundColor: 'transparent',
+      borderWidth: 1,
+      borderColor: '#ffffff',
+      blurAmount: 10,
+      opacity: 0.7,
+      padding: 20,
+      paddingHorizontal: 30,
+      borderRadius: 35,
+      marginVertical: 20,
+      marginRight: 10,
+    },
+
     pressed:{
       opacity: 0.8,
     },
+
     subText:{
       color:'#d3d3d3',
       fontSize: 12,
     },
+
     img: {
       width: 100,
       height: 100,

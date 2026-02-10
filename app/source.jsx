@@ -9,7 +9,7 @@ import ProfilePic2 from '../assets/img/Random ProfilePicSecond.webp'
 import ProfilePic3 from '../assets/img/RandomProfilePic.webp'
 import Logo from '../assets/img/STYLD Logo.png'
 
-const Home = () => {
+const Source = () => {
   const navigation = useNavigation();
   const [isHovered, setIsHovered] = useState(false);
 
@@ -73,8 +73,8 @@ const Home = () => {
            </View>
         </View>
         
-        <Pressable style={({pressed}) => [styles.btn, pressed && styles.pressed]} onPress={() => navigation.navigate('aesthetic')}>
-           <Text style={{fontSize: 16}}>Get STYLD  > </Text>
+        <Pressable style={({pressed}) => [styles.btn, pressed && styles.pressed]} onPress={() => navigation.navigate('preview')}>
+           <Text style={{fontSize: 16}}>Continue  > </Text>
         </Pressable>
         
         <Text style={styles.subText}>Personalized in under 60 seconds</Text>
@@ -83,7 +83,7 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Source
 
 const styles = StyleSheet.create({
     container: {
