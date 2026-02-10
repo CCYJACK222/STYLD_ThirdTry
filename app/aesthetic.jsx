@@ -3,10 +3,14 @@ import React, { useState } from 'react'
 import { Colors } from '../constants/Colors'
 import { useNavigation } from '@react-navigation/native'
 
-
+//images
 import StreetWear from '../assets/img/Streetwear.jpg'
-import ProfilePic2 from '../assets/img/Random ProfilePicSecond.webp'
-import ProfilePic3 from '../assets/img/RandomProfilePic.webp'
+import ClassyWear from '../assets/img/Classywear.jpg'
+import BusinessWear from '../assets/img/Businesswear.webp'
+import Y2KWear from '../assets/img/Y2Kwear.webp'
+import GlamWear from '../assets/img/Glamwear.webp'
+import Minimalist from '../assets/img/Minimalistwear.webp'
+import AthleticWear from '../assets/img/Athleticwear.webp'
 import Logo from '../assets/img/STYLD Logo.png'
 
 const Aesthetic = () => {
@@ -32,35 +36,48 @@ const Aesthetic = () => {
         </Text>
       
 
-        <View style={styles.reviewCard}>
-           <ImageBackground source={StreetWear} style={styles.img} />
-            <View style={{flex:1}}>
-              <Text style={styles.normalText}>Sophia Laurent</Text>
-              <Text style={styles.subText}>Fashion Director</Text>
-              <Text style={[styles.subText, {marginTop: 20, fontStyle: 'italic'}]}>"A masterclass in personal style"</Text>
-            </View>
+        <View style={styles.cardContainer}>
+           <Image source={StreetWear} style={styles.img} />
+           <Text style={styles.normalText}>StreetWear</Text>
+           <Text style={styles.normalText}>Urban edge & contemporary culture</Text>
         </View>
-        <View style={styles.reviewCard}>
-           <ImageBackground source={ProfilePic2} style={styles.img} />
-           <View style={{flex:1}}>
-            <Text style={styles.normalText}>Marcus Chen</Text>
-            <Text style={styles.subText}>Creative Consultant</Text>
-            <Text style={[styles.subText, {marginTop: 20, fontStyle: 'italic'}]}>"Elevated my entire wardrobe"</Text>
-           </View>
+        <View style={styles.cardContainer}>
+           <Image source={ClassyWear} style={styles.img} />
+           <Text style={ styles.normalText}>Classy</Text>
+           <Text style={styles.normalText}>Timeless elegance & sophistication</Text>
         </View>
 
-        <View style={styles.reviewCard}>
-           <ImageBackground source={ProfilePic3} style={styles.img} />
-           <View style={{flex:1}}>
-            <Text style={styles.normalText}>Isabella Rose</Text>
-            <Text style={styles.subText}>Brand Strategist</Text>
-            <Text style={[styles.subText, {marginTop: 20, fontStyle: 'italic'}]}>"The future of fashion technology"</Text>
-           </View>
+        <View style={styles.cardContainer}>
+           <Image source={BusinessWear} style={styles.img} />
+           <Text style={styles.normalText}>Business</Text>
+           <Text style={styles.normalText}>Professional power & polished presence</Text>
         </View>
         
+        <View style={styles.cardContainer}>
+           <Image source={Y2KWear} style={styles.img} />
+           <Text style={styles.normalText}>Y2K</Text>
+           <Text style={styles.normalText}>Nostalgic 2000s vibes & retro futurism</Text>
+        </View>
+
+        <View style={styles.cardContainer}>
+           <Image source={GlamWear} style={styles.img} />
+           <Text style={styles.normalText}>Glam</Text>
+           <Text style={styles.normalText}>Luxurious & show-stopping elegance</Text>
+        </View>
+
+        <View style={styles.cardContainer}>
+           <Image source={Minimalist} style={styles.img} />
+           <Text style={styles.normalText}>Minimalist</Text>
+           <Text style={styles.normalText}>Clean lines & refined simplicity</Text>
+        </View>
+
+        <View style={styles.cardContainer}>
+           <Image source={AthleticWear} style={styles.img} />
+           <Text style={styles.normalText}>Athletic Wear</Text>
+           <Text style={styles.normalText}>Performance-driven & sporty style</Text>
+        </View>
 
 
-        <Text style={styles.subText}>Personalized in under 60 seconds</Text>
       </ScrollView>
 
       <View style={styles.btnContainer}>
@@ -94,20 +111,21 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
 
-    reviewCard: {
-        borderRadius: 24,
-        borderWidth: 1,
-        backgroundColor:'#ffffff14',
-        borderColor: '#ffffff14',
-        marginVertical: 8,
-        marginHorizontal: 20,
-        padding: 30,
+    cardContainer: {
         width: 350,
-        flexDirection: 'row',
+        marginVertical: 100,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+
+    cardSelected: {
+        borderColor: '#ffffff',
+        borderWidth: 1,
     },
 
     normalText: {
         color: '#ffffff',
+        justifyContent: 'flex-end',
     },
 
 
@@ -148,12 +166,12 @@ const styles = StyleSheet.create({
     },
 
     img: {
-      width: 100,
-      height: 100,
-      resizeMode: 'contain',
-      borderWidth: 1,
-      borderColor: '#ffffff14',
-      borderRadius: 50,
-      marginRight: 10,
+      position: 'absolute',
+      width: 400,
+      height: 250,
+      resizeMode: 'cover',
+      padding: 20,
+      borderRadius: 20,
+      opacity: 0.5,
     }
 })
