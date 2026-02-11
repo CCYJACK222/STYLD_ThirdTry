@@ -85,7 +85,7 @@ const Home = () => {
 
 export default Home
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
     container: {
         backgroundColor: Colors.Primary,
         height: '100%',

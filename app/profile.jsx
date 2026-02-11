@@ -1,85 +1,104 @@
-import { ScrollView, StyleSheet, Text, View, Pressable, Image } from 'react-native'
+import { ScrollView, StyleSheet, Text, View, Pressable, Image, TextInput, TouchableWithoutFeedback, Keyboard } from 'react-native'
 import React, { useState } from 'react'
 import { Colors } from '../constants/Colors'
 import { useNavigation } from '@react-navigation/native'
 
-
-import ProfilePic from '../assets/img/ProfilePictureThird.png'
-import ProfilePic2 from '../assets/img/Random ProfilePicSecond.webp'
-import ProfilePic3 from '../assets/img/RandomProfilePic.webp'
+//images
+import StreetWear from '../assets/img/Streetwear.jpg'
+import ClassyWear from '../assets/img/Classywear.jpg'
+import BusinessWear from '../assets/img/Businesswear.webp'
+import Y2KWear from '../assets/img/Y2Kwear.webp'
+import GlamWear from '../assets/img/Glamwear.webp'
+import Minimalist from '../assets/img/Minimalistwear.webp'  
+import AthleticWear from '../assets/img/Athleticwear.webp'
 import Logo from '../assets/img/STYLD Logo.png'
 
 const Profile = () => {
   const navigation = useNavigation();
   const [isHovered, setIsHovered] = useState(false);
+  const [location, setlocation] = useState('');
+  
 
   return (
-    <View style={styles.container}>
-      <ScrollView contentContainerStyle={{alignItems: 'center', paddingVertical: 40}} showsVerticalScrollIndicator={false}>
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+
+      <View style={styles.container}>
       
-      <Image source={Logo} style={{width: 300, height: 300, marginBottom: 20}} />
+        <Image source={Logo} style={{width: 50, height: 50, marginBottom: 20, top:0}} />
       
 
-        <Text style={styles.heading1}>STYLD</Text>
+        <Text style={styles.heading2}>My STYLD</Text>
 
         <Text style={{
-          color: '#ffffff',
-          marginVertical: 10,
-          fontSize: 24,
+          color: '#ffffff9a',
+          marginVertical: 8,
+          marginBottom: 20,
+          fontSize: 16,
           textAlign: 'center', //centers text horizontally within its container
         }}>
-          Where Style Meets {"\n"}Intelligence
+          Help us personalize your experience
+        </Text>
+
+        <Text style={{color: '#ffffffd0',
+          marginVertical: 8,
+          fontSize: 16,
+          textAlign: 'center', //centers text horizontally within its container
+        }}>
+          Gender
         </Text>
       
-        <Text style={{
-          color: '#ffffff',
-          textAlign: 'center', 
-          marginVertical: 20,
-           }}> 
-          AI-powered styling + Virtual try-on + Curated {"\n"}marketplace
+
+        <View style={styles.genderContainer}>
+          <View style={styles.optionsContainer}>
+           <Text style={styles.normalText}>Male</Text>
+          </View>
+          <View style={styles.optionsContainer}>
+            <Text style={styles.normalText}>Female</Text>
+          </View>
+          <View style={styles.optionsContainer}>
+            <Text style={styles.normalText}>Non-Binary</Text>
+          </View>
+          <View style={styles.optionsContainer}>
+            <Text style={styles.normalText}>Prefer not to say</Text>
+          </View>
+        </View>
+
+        <Text 
+          style={{color: '#ffffffd0',
+          marginVertical: 8,
+          fontSize: 16,
+          textAlign: 'center', //centers text horizontally within its container
+        }}> 
+          Where are you from?
         </Text>
 
-        <Text style={{
-          color: '#ffffff',
-          textAlign: 'center', 
-          marginVertical: 20,
-           }}> 
-          Join 49,905+ users styling smarter
+        <TextInput
+          placeholder='e.g., New York, London, Tokyo'
+          style={styles.inputStyle}
+          value={location}
+          onChangeText={setlocation}
+        />
+
+
+        <Text style={[styles.normalText, {marginVertical:8, fontSize: 14}]}>
+          We'll curate styles and trends for your region
         </Text>
 
-        <View style={styles.reviewCard}>
-           <Image source={ProfilePic} style={styles.img} />
-           <View style={{flex:1}}>
-            <Text style={styles.normalText}>Sophia Laurent</Text>
-            <Text style={styles.subText}>Fashion Director</Text>
-            <Text style={[styles.subText, {marginTop: 20, fontStyle: 'italic'}]}>"A masterclass in personal style"</Text>
-           </View>
-        </View>
-        <View style={styles.reviewCard}>
-           <Image source={ProfilePic2} style={styles.img} />
-           <View style={{flex:1}}>
-            <Text style={styles.normalText}>Marcus Chen</Text>
-            <Text style={styles.subText}>Creative Consultant</Text>
-            <Text style={[styles.subText, {marginTop: 20, fontStyle: 'italic'}]}>"Elevated my entire wardrobe"</Text>
-           </View>
-        </View>
 
-        <View style={styles.reviewCard}>
-           <Image source={ProfilePic3} style={styles.img} />
-           <View style={{flex:1}}>
-            <Text style={styles.normalText}>Isabella Rose</Text>
-            <Text style={styles.subText}>Brand Strategist</Text>
-            <Text style={[styles.subText, {marginTop: 20, fontStyle: 'italic'}]}>"The future of fashion technology"</Text>
-           </View>
+
+
+
+
+        <View style={styles.btnContainer}>
+          <Pressable style={({pressed}) => [styles.backbtn, pressed && styles.pressed]} onPress={() => navigation.goBack()}>
+            <Text style={{color: '#ffffff', fontSize: 16}}>Back</Text>
+          </Pressable>
+          <Pressable style={({pressed}) => [styles.btn, pressed && styles.pressed]} onPress={() => navigation.navigate('goals')}>
+            <Text style={{fontSize: 16}}>Continue  > </Text>
+          </Pressable>
         </View>
-        
-        <Pressable style={({pressed}) => [styles.btn, pressed && styles.pressed]} onPress={() => navigation.navigate('goals')}>
-           <Text style={{fontSize: 16}}>Continue  > </Text>
-        </Pressable>
-        
-        <Text style={styles.subText}>Personalized in under 60 seconds</Text>
-      </ScrollView>
-    </View>
+      </View>
+    </TouchableWithoutFeedback>
   )
 }
 
@@ -92,29 +111,40 @@ const styles = StyleSheet.create({
         justifyContent: 'center', // Centers vertically
         alignItems: 'center', //Centers horizontally
         flex: 1,
+        position: 'absolute',
     },
-    heading1: {
+
+    heading2: {
         color: Colors.Secondary,
-        fontSize: 92,
+        fontSize: 36,
         fontWeight: 'bold',
-        borderBottomWidth: 1,
-        borderBottomColor: '#ffffff',
-        marginBottom: 10,
+        marginBottom: 5,
+        textAlign: 'center',
     },
-    reviewCard: {
-        borderRadius: 24,
-        borderWidth: 1,
-        backgroundColor:'#ffffff14',
-        borderColor: '#ffffff14',
-        marginVertical: 8,
-        marginHorizontal: 20,
-        padding: 30,
-        width: 350,
+
+    cardContainer: {
+        justifyContent: 'center',
+        alignItems: 'center',
         flexDirection: 'row',
+
     },
+
+    cardSelected: {
+        borderColor: '#ffffff',
+        borderWidth: 1,
+    },
+
     normalText: {
         color: '#ffffff',
     },
+
+
+    btnContainer: {
+      flexDirection: 'row',
+      marginVertical: 20,
+      backgroundColor: 'transparent',
+    },
+
     btn: {
       backgroundColor: '#ffffff',
       padding: 25,
@@ -122,20 +152,69 @@ const styles = StyleSheet.create({
       borderRadius: 35,
       marginVertical: 20,
     },
+
+    backbtn: {
+      backgroundColor: 'transparent',
+      borderWidth: 1,
+      borderColor: '#ffffff',
+      blurAmount: 10,
+      opacity: 0.7,
+      padding: 20,
+      paddingHorizontal: 30,
+      borderRadius: 35,
+      marginVertical: 20,
+      marginRight: 10,
+    },
+
     pressed:{
       opacity: 0.8,
     },
+
     subText:{
       color:'#d3d3d3',
       fontSize: 12,
     },
+
     img: {
-      width: 100,
-      height: 100,
+      position: 'absolute',
+      width: 400,
+      height: 250,
       resizeMode: 'cover',
-      borderWidth: 1,
-      borderColor: '#ffffff14',
-      borderRadius: 50,
-      marginRight: 10,
+      padding: 20,
+      borderRadius: 20,
+      opacity: 0.5,
+    },
+
+    inputStyle: {
+      backgroundColor: '#d3d3d348',
+      color: '#ffffff',
+      padding: 20,
+      borderRadius: 10,
+      borderWidth: 0.2,
+      borderColor: '#ffffffd6',
+      textAlign: 'center',
+      width: '90%',
+    },
+
+    genderContainer: {
+      alignContent: 'center', 
+      justifyContent: 'center',
+      padding: 20,
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+
+    },
+    optionsContainer: {
+      borderColor: '#ffffffd6',
+      borderWidth: 0.2,
+      borderRadius: 10,
+      width: 150,
+      height: 50,
+      padding: 15,
+      marginVertical: 5,
+      marginHorizontal: 10,
+      textAlign: 'center',
+      justifyContent: 'center',
+      alignItems: 'center',
     }
 })

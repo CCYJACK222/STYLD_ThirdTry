@@ -19,7 +19,7 @@ const Aesthetic = () => {
 
   return (
     <View style={styles.container}>
-      <ScrollView contentContainerStyle={{alignItems: 'center', paddingVertical: 40}} showsVerticalScrollIndicator={false}>
+      <ScrollView contentContainerStyle={{alignItems: 'center', paddingVertical: 80}} showsVerticalScrollIndicator={false}>
       
       <Image source={Logo} style={{width: 50, height: 50, marginBottom: 20}} />
       
