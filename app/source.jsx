@@ -1,13 +1,20 @@
-import { ScrollView, StyleSheet, Text, View, Pressable, Image } from 'react-native'
+import { ScrollView, StyleSheet, Text, View, Pressable, Image, ImageBackground } from 'react-native'
 import React, { useState } from 'react'
 import { Colors } from '../constants/Colors'
 import { useNavigation } from '@react-navigation/native'
 
-
-import ProfilePic from '../assets/img/ProfilePictureThird.png'
-import ProfilePic2 from '../assets/img/Random ProfilePicSecond.webp'
-import ProfilePic3 from '../assets/img/RandomProfilePic.webp'
+//images
+import StreetWear from '../assets/img/Streetwear.jpg'
+import ClassyWear from '../assets/img/Classywear.jpg'
+import BusinessWear from '../assets/img/Businesswear.webp'
+import Y2KWear from '../assets/img/Y2Kwear.webp'
+import GlamWear from '../assets/img/Glamwear.webp'
+import Minimalist from '../assets/img/Minimalistwear.webp'
+import AthleticWear from '../assets/img/Athleticwear.webp'
 import Logo from '../assets/img/STYLD Logo.png'
+
+
+
 
 const Source = () => {
   const navigation = useNavigation();
@@ -15,70 +22,99 @@ const Source = () => {
 
   return (
     <View style={styles.container}>
-      <ScrollView contentContainerStyle={{alignItems: 'center', paddingVertical: 40}} showsVerticalScrollIndicator={false}>
+      <ScrollView contentContainerStyle={{alignItems: 'center', paddingVertical: 80}} showsVerticalScrollIndicator={false}>
       
-      <Image source={Logo} style={{width: 300, height: 300, marginBottom: 20}} />
+      <Image source={Logo} style={{width: 50, height: 50, marginBottom: 20}} />
       
 
-        <Text style={styles.heading1}>STYLD</Text>
+        <Text style={styles.heading2}>How did you {'\n'}discover STYLD?</Text>
 
         <Text style={{
-          color: '#ffffff',
+          color: '#ffffff68',
           marginVertical: 10,
-          fontSize: 24,
+          fontSize: 16,
           textAlign: 'center', //centers text horizontally within its container
         }}>
-          Where Style Meets {"\n"}Intelligence
+          Help us understand our community
         </Text>
       
-        <Text style={{
-          color: '#ffffff',
-          textAlign: 'center', 
-          marginVertical: 20,
-           }}> 
-          AI-powered styling + Virtual try-on + Curated {"\n"}marketplace
-        </Text>
-
-        <Text style={{
-          color: '#ffffff',
-          textAlign: 'center', 
-          marginVertical: 20,
-           }}> 
-          Join 49,905+ users styling smarter
-        </Text>
 
         <View style={styles.reviewCard}>
-           <Image source={ProfilePic} style={styles.img} />
+           <Image style={styles.img} />
            <View style={{flex:1}}>
-            <Text style={styles.normalText}>Sophia Laurent</Text>
-            <Text style={styles.subText}>Fashion Director</Text>
-            <Text style={[styles.subText, {marginTop: 20, fontStyle: 'italic'}]}>"A masterclass in personal style"</Text>
+            <Text style={[styles.normalText, {fontSize: 20}]}>
+              Instagram
+            </Text>
            </View>
         </View>
         <View style={styles.reviewCard}>
-           <Image source={ProfilePic2} style={styles.img} />
+           <Image style={styles.img} />
            <View style={{flex:1}}>
-            <Text style={styles.normalText}>Marcus Chen</Text>
-            <Text style={styles.subText}>Creative Consultant</Text>
-            <Text style={[styles.subText, {marginTop: 20, fontStyle: 'italic'}]}>"Elevated my entire wardrobe"</Text>
+            <Text style={[styles.normalText, {fontSize: 20}]}>
+              Tiktok
+            </Text>
            </View>
         </View>
 
         <View style={styles.reviewCard}>
-           <Image source={ProfilePic3} style={styles.img} />
+           <Image style={styles.img} />
            <View style={{flex:1}}>
-            <Text style={styles.normalText}>Isabella Rose</Text>
-            <Text style={styles.subText}>Brand Strategist</Text>
-            <Text style={[styles.subText, {marginTop: 20, fontStyle: 'italic'}]}>"The future of fashion technology"</Text>
+            <Text style={[styles.normalText, {fontSize: 20}]}>
+              X
+            </Text>
            </View>
         </View>
-        
-        <Pressable style={({pressed}) => [styles.btn, pressed && styles.pressed]} onPress={() => navigation.navigate('preview')}>
-           <Text style={{fontSize: 16}}>Continue  > </Text>
-        </Pressable>
-        
-        <Text style={styles.subText}>Personalized in under 60 seconds</Text>
+
+        <View style={styles.reviewCard}>
+           <Image style={styles.img} />
+           <View style={{flex:1}}>
+            <Text style={[styles.normalText, {fontSize: 20}]}>
+              Youtube
+            </Text>
+           </View>
+        </View>
+
+
+        <View style={styles.reviewCard}>
+           <Image style={styles.img} />
+           <View style={{flex:1}}>
+            <Text style={[styles.normalText, {fontSize: 20}]}>
+              Facebook
+            </Text>
+           </View>
+        </View>
+
+
+        <View style={styles.reviewCard}>
+           <Image style={styles.img} />
+           <View style={{flex:1}}>
+            <Text style={[styles.normalText, {fontSize: 20}]}>
+              Friend Recommendation
+            </Text>
+           </View>
+        </View>
+
+        <View style={styles.reviewCard}>
+           <Image style={styles.img} />
+           <View style={{flex:1}}>
+            <Text style={[styles.normalText, {fontSize: 20}]}>
+              Other
+            </Text>
+           </View>
+        </View>
+
+
+
       </ScrollView>
+
+      <View style={styles.btnContainer}>
+          <Pressable style={({pressed}) => [styles.backbtn, pressed && styles.pressed]} onPress={() => navigation.goBack()}>
+            <Text style={{color: '#ffffff', fontSize: 16}}>Back</Text>
+          </Pressable>
+          <Pressable style={({pressed}) => [styles.btn, pressed && styles.pressed]} onPress={() => navigation.navigate('preview')}>
+            <Text style={{fontSize: 16}}>Continue  > </Text>
+          </Pressable>
+        </View>
     </View>
   )
 }
@@ -93,14 +129,15 @@ const styles = StyleSheet.create({
         alignItems: 'center', //Centers horizontally
         flex: 1,
     },
-    heading1: {
+
+    heading2: {
         color: Colors.Secondary,
-        fontSize: 92,
+        fontSize: 36,
         fontWeight: 'bold',
-        borderBottomWidth: 1,
-        borderBottomColor: '#ffffff',
         marginBottom: 10,
+        textAlign: 'center',
     },
+
     reviewCard: {
         borderRadius: 24,
         borderWidth: 1,
@@ -108,13 +145,35 @@ const styles = StyleSheet.create({
         borderColor: '#ffffff14',
         marginVertical: 8,
         marginHorizontal: 20,
-        padding: 30,
+        padding: 35,
         width: 350,
         flexDirection: 'row',
     },
+
+
+    cardContainer: {
+        width: 350,
+        marginVertical: 100,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+
+    cardSelected: {
+        borderColor: '#ffffff',
+        borderWidth: 1,
+    },
+
     normalText: {
         color: '#ffffff',
     },
+
+
+    btnContainer: {
+      flexDirection: 'row',
+      marginVertical: 20,
+      backgroundColor: 'transparent',
+    },
+
     btn: {
       backgroundColor: '#ffffff',
       padding: 25,
@@ -122,20 +181,36 @@ const styles = StyleSheet.create({
       borderRadius: 35,
       marginVertical: 20,
     },
+
+    backbtn: {
+      backgroundColor: 'transparent',
+      borderWidth: 1,
+      borderColor: '#ffffff',
+      blurAmount: 10,
+      opacity: 0.7,
+      padding: 20,
+      paddingHorizontal: 30,
+      borderRadius: 35,
+      marginVertical: 20,
+      marginRight: 10,
+    },
+
     pressed:{
       opacity: 0.8,
     },
+
     subText:{
       color:'#d3d3d3',
       fontSize: 12,
     },
+
     img: {
-      width: 100,
-      height: 100,
+      position: 'absolute',
+      width: 400,
+      height: 250,
       resizeMode: 'cover',
-      borderWidth: 1,
-      borderColor: '#ffffff14',
-      borderRadius: 50,
-      marginRight: 10,
+      padding: 20,
+      borderRadius: 20,
+      opacity: 0.5,
     }
 })

@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center', // Centers vertically
         alignItems: 'center', //Centers horizontally
         flex: 1,
-        position: 'absolute',
+        position: 'relative',
     },
 
     heading2: {
