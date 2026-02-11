@@ -74,6 +74,7 @@ const Profile = () => {
 
         <TextInput
           placeholder='e.g., New York, London, Tokyo'
+          placeholderTextColor={'#ffffff41'}
           style={styles.inputStyle}
           value={location}
           onChangeText={setlocation}

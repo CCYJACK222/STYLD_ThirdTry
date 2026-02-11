@@ -27,7 +27,7 @@ const Goals = () => {
       <Image source={Logo} style={{width: 50, height: 50, marginBottom: 20}} />
       
 
-        <Text style={styles.heading2}>Select Your Aesthetic</Text>
+        <Text style={styles.heading2}>Your Style {'\n'}Aspirations</Text>
 
         <Text style={{
           color: '#ffffff40',
@@ -35,7 +35,7 @@ const Goals = () => {
           fontSize: 16,
           textAlign: 'center', //centers text horizontally within its container
         }}>
-          Choose the style that resonates
+          Select all that inspire you
         </Text>
       
 
