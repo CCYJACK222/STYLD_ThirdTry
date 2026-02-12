@@ -14,8 +14,8 @@ const RootLayout = () => {
         <Stack.Screen name='profile' options={{title: 'My STYLD', headerShown: false}} />
         <Stack.Screen name='goals' options={{title: 'Goals Quiz', headerShown: false}} />
         <Stack.Screen name='source' options={{title: 'Source Quiz', headerShown: false}} />
-        <Stack.Screen name='preview' options={{title: 'Preview', headerShown: true}} />
-        <Stack.Screen name='account' options={{title: 'Account Creation', headerShown: true}} />
+        <Stack.Screen name='preview' options={{title: 'Preview', headerShown: false}} />
+        <Stack.Screen name='account' options={{title: 'Account Creation', headerShown: false}} />
         <Stack.Screen name='plans' options={{title: 'Plans', headerShown: true}} />
     </Stack>
   )
