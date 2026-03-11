@@ -144,6 +144,7 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       marginVertical: 20,
       backgroundColor: 'transparent',
+      marginTop: 170,
     },
 
     btn: {

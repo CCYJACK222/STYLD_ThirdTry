@@ -103,6 +103,15 @@ const Account = () => {
           By continuing, you agree to our Terms of Service and Privacy Policy
         </Text>
 
+        <Text style={{
+          color: '#ffffff9a',
+          marginVertical: 20,
+          fontSize: 14,
+          textAlign: 'center', //centers text horizontally within its container
+        }}>
+          Almost there. One more step...
+        </Text>
+
 
 
 
